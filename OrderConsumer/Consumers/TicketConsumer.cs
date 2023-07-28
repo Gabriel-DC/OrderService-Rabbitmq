@@ -16,7 +16,7 @@ namespace OrderConsumer.Consumers
         {
             await Console.Out.WriteLineAsync(context.Message.UserName);
 
-            logger.LogInformation($"Nova mensagem recebida: {context.Message.UserName} {context.Message.Location}");
+            logger.LogInformation($"[{context.Message.Booked}] Nova mensagem recebida: {context.Message.UserName} {context.Message.Location}");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MassTransit;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using OrderConsumer.Consumers;
 
 namespace OrderPublisher
 {

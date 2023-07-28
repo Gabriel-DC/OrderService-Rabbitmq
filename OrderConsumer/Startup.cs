@@ -60,17 +60,6 @@ namespace OrderPublisher
 
             app.MapControllers();
 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapHealthChecks("/health/ready", new HealthCheckOptions()
-            //    {
-            //        Predicate = (check) => check.Tags.Contains("ready"),
-            //    });
-
-            //    endpoints.MapHealthChecks("/health/live", new HealthCheckOptions());
-
-            //});
-
             app.Run();
         }
     }

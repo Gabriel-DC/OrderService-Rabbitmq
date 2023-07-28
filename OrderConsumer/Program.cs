@@ -1,3 +1,5 @@
+using OrderPublisher;
+
 namespace OrderConsumer
 {
     public class Program
@@ -5,31 +7,11 @@ namespace OrderConsumer
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            Startup startup = new(builder.Configuration);
 
-            // Add services to the container.
-
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-
+            startup.ConfigureServices(builder.Services);
             var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-
-            app.MapControllers();
-
-            app.Run();
+            startup.Configure(app, builder.Environment);
         }
     }
 }
